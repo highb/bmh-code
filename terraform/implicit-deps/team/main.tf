@@ -3,15 +3,15 @@ variable "team" {
   type = string
 }
 
-variable "content" {
+variable "summary" {
   type = string
 }
 
-resource "local_file" "contact_point" {
-  content = var.content
-  filename = "${var.team}.contact"
+resource "local_file" "team_data" {
+  content = var.summary
+  filename = "${var.team}.data"
 }
 
 output "content" {
-  value = local_file.contact_point.content
+  value = local_file.team_data.content
 }
